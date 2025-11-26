@@ -55,7 +55,7 @@ jobs:
             core.info(`Found ${labelNames.length} labels: ${labelNames.join(', ')}`);
             return labelNames;
       - name: 'Debug available_labels'
-        run: echo "available_labels=${{ steps.get_label_names.outputs.available_labels }}"
+        run: echo "available_labels=${{ steps.get_labels.outputs.available_labels }}"
       - name: 'Run Gemini issue analysis'
         id: 'gemini_analysis'
         if: |-
