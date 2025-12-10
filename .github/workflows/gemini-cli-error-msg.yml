@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Run Prompt
-        uses: google-github-actions/run-gemini-cli@87c4941afde98641c57b70f672fbdfb7b9fa4623
+        uses: gsehgal/run-gemini-cli@v0
         id: analyze-ci-error
         with:
           gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
