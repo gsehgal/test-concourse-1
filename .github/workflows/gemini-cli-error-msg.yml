@@ -1,0 +1,25 @@
+name: Gemini CLI Hello World
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  ask-gemini:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # Required for authentication if using OIDC (optional but good practice)
+    
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Run Prompt
+        uses: google-github-actions/run-gemini-cli@2a77eb258d8d2447292fd5d9df6e7b49533d4f37
+        id: analyze-ci-error
+        with:
+          gemini_api_key: ${{ secrets.GEMINI_API_KEY }}
+          # The action will send this prompt to Gemini and print the response in the logs
+          prompt: |
+            Use `actions/github-script@v7` to implement a GitHub Action step to print a hello world.
